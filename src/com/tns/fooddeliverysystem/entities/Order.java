@@ -1,7 +1,7 @@
 package com.tns.fooddeliverysystem.entities;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 public class Order {
 
