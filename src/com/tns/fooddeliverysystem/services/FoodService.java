@@ -1,104 +1,107 @@
-// package com.tns.fooddeliverysystem.services;
+package com.tns.fooddeliverysystem.services;
 
-// import java.util.ArrayList;
-// import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
-// import com.tns.fooddeliverysystem.entities.FoodItem;
-// import com.tns.fooddeliverysystem.entities.Restaurant;
+import com.tns.fooddeliverysystem.entities.FoodItem;
+import com.tns.fooddeliverysystem.entities.Restaurant;
 
-// public class FoodService {
+public class FoodService {
 
-//     private List<Restaurant> restaurants;
+    private List<Restaurant> restaurants;
 
-//     public FoodService() {
-//         restaurants = new ArrayList<>();
-//     }
+    public FoodService() {
+        restaurants = new ArrayList<>();
+    }
 
-//     public void addRestaurant(Restaurant restaurant) {
+    public void addRestaurant(Restaurant restaurant) {
 
-//         if (restaurant != null) {
-//             restaurants.add(restaurant);
-//         }
-//     }
+        if (restaurant != null) {
+            restaurants.add(restaurant);
+        }
+    }
 
-//     public List<Restaurant> getRestaurants() {
-//         return restaurants;
-//     }
+    public List<Restaurant> getRestaurants() {
+        return restaurants;
+    }
 
-//     public List<FoodItem> getAllFoodItems() {
+    public List<FoodItem> getAllFoodItems() {
 
-//         List<FoodItem> allFoodItems = new ArrayList<>();
+        List<FoodItem> allFoodItems = new ArrayList<>();
 
-//         for (Restaurant restaurant : restaurants) {
-//             allFoodItems.addAll(restaurant.getMenu());
-//         }
+        for (Restaurant restaurant : restaurants) {
+            allFoodItems.addAll(restaurant.getMenu());
+        }
 
-//         return allFoodItems;
-//     }
+        return allFoodItems;
+    }
 
-//     public Restaurant getRestaurant(int restaurantId) {
+    public Restaurant getRestaurant(int restaurantId) {
 
-//         for (Restaurant restaurant : restaurants) {
+        for (Restaurant restaurant : restaurants) {
 
-//             if (restaurant.getId() == restaurantId) {
-//                 return restaurant;
-//             }
-//         }
+            if (restaurant.getId() == restaurantId) {
+                return restaurant;
+            }
+        }
 
-//         return null;
-//     }
+        return null;
+    }
 
-//     public FoodItem getFoodItem(int restaurantId, int foodItemId) {
+    public FoodItem getFoodItem(int restaurantId, int foodItemId) {
 
-//         Restaurant restaurant = getRestaurant(restaurantId);
+        Restaurant restaurant = getRestaurant(restaurantId);
 
-//         if (restaurant != null) {
+        if (restaurant != null) {
 
-//             for (FoodItem foodItem : restaurant.getMenu()) {
+            for (FoodItem foodItem : restaurant.getMenu()) {
 
-//                 if (foodItem.getId() == foodItemId) {
-//                     return foodItem;
-//                 }
-//             }
-//         }
+                if (foodItem.getId() == foodItemId) {
+                    return foodItem;
+                }
+            }
+        }
 
-//         return null;
-//     }
+        return null;
+    }
 
-//     public void addFoodItemToRestaurant(
-//             int restaurantId,
-//             FoodItem foodItem) {
+    public void addFoodItemToRestaurant(
+            int restaurantId,
+            FoodItem foodItem) {
 
-//         Restaurant restaurant = getRestaurant(restaurantId);
+        Restaurant restaurant = getRestaurant(restaurantId);
 
-//         if (restaurant != null) {
+        if (restaurant != null) {
 
-//             restaurant.addFoodItem(foodItem);
+            restaurant.addFoodItem(foodItem);
 
-//             System.out.println(
-//                     "Food item added successfully!");
+            System.out.println(
+                    "Food item added successfully!"
+            );
 
-//         } else {
+        } else {
 
-//             System.out.println(
-//                     "Restaurant not found.");
-//         }
-//     }
+            System.out.println(
+                    "Restaurant not found."
+            );
+        }
+    }
 
-//     public void removeFoodItemFromRestaurant(
-//             int restaurantId,
-//             int foodItemId) {
+    public void removeFoodItemFromRestaurant(
+            int restaurantId,
+            int foodItemId) {
 
-//         Restaurant restaurant = getRestaurant(restaurantId);
+        Restaurant restaurant = getRestaurant(restaurantId);
 
-//         if (restaurant != null) {
+        if (restaurant != null) {
 
-//             restaurant.removeFoodItem(foodItemId);
+            restaurant.removeFoodItem(foodItemId);
 
-//         } else {
+        } else {
 
-//             System.out.println(
-//                     "Restaurant not found.");
-//         }
-//     }
-// }
+            System.out.println(
+                    "Restaurant not found."
+            );
+        }
+    }
+}
