@@ -40,8 +40,6 @@ public class Cart {
 
     @Override
     public String toString() {
-        return "Cart{" +
-                "items=" + items +
-                '}';
+        return "Cart{" +"items=" + items +'}';
     }
 }
