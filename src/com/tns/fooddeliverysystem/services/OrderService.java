@@ -27,8 +27,7 @@ public class OrderService {
             orders.add(order);
 
             System.out.println(
-                    "Order placed successfully! Your order ID is: "
-                            + order.getOrderId()
+                    "Order placed successfully! Your order ID is: "+ order.getOrderId()
             );
         }
     }
@@ -92,26 +91,18 @@ public class OrderService {
 
         if (order == null) {
 
-            System.out.println(
-                    "Order not found."
-            );
-
+            System.out.println("Order not found.");
             return;
         }
 
         if (deliveryPerson == null) {
 
-            System.out.println(
-                    "Delivery person not found."
-            );
-
+            System.out.println("Delivery person not found.");
             return;
         }
 
         order.setDeliveryPerson(deliveryPerson);
 
-        System.out.println(
-                "Delivery person assigned to order successfully!"
-        );
+        System.out.println("Delivery person assigned to order successfully!");
     }
 }
