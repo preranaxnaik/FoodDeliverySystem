@@ -84,22 +84,13 @@ public class FoodDeliverySystem {
             System.out.println("==============================");
 
             System.out.println("1. Add Restaurant");
-            System.out.println(
-                    "2. Add Food Item to Restaurant"
-            );
-            System.out.println(
-                    "3. Remove Food Item from Restaurant"
-            );
-            System.out.println(
-                    "4. View Restaurants and Menus"
-            );
+            System.out.println("2. Add Food Item to Restaurant");
+            System.out.println("3. Remove Food Item from Restaurant");
+            System.out.println("4. View Restaurants and Menus");
             System.out.println("5. View Orders");
             System.out.println("6. Add Delivery Person");
-            System.out.println(
-                    "7. Assign Delivery Person to Order"
-            );
+            System.out.println("7. Assign Delivery Person to Order");
             System.out.println("8. Exit");
-
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
@@ -135,15 +126,11 @@ public class FoodDeliverySystem {
                     break;
 
                 case 8:
-                    System.out.println(
-                            "Exiting Admin Module"
-                    );
+                    System.out.println("Exiting Admin Module");
                     return;
 
                 default:
-                    System.out.println(
-                            "Invalid option."
-                    );
+                    System.out.println("Invalid option.");
             }
         }
     }
@@ -162,14 +149,11 @@ public class FoodDeliverySystem {
         System.out.print("Enter Restaurant Name: ");
         String name = scanner.nextLine();
 
-        Restaurant restaurant =
-                new Restaurant(id, name);
+        Restaurant restaurant =new Restaurant(id, name);
 
         foodService.addRestaurant(restaurant);
 
-        System.out.println(
-                name + " Restaurant added successfully!"
-        );
+        System.out.println(name + " Restaurant added successfully!");
     }
 
     // ==========================================
@@ -192,17 +176,9 @@ public class FoodDeliverySystem {
         System.out.print("Enter Food Item Price: ");
         double price = scanner.nextDouble();
 
-        FoodItem foodItem =
-                new FoodItem(
-                        foodItemId,
-                        name,
-                        price
-                );
+        FoodItem foodItem =new FoodItem(foodItemId,name,price);
 
-        foodService.addFoodItemToRestaurant(
-                restaurantId,
-                foodItem
-        );
+        foodService.addFoodItemToRestaurant(restaurantId,foodItem);
     }
 
     // ==========================================
@@ -217,14 +193,9 @@ public class FoodDeliverySystem {
         System.out.print("Enter Food Item ID: ");
         int foodItemId = scanner.nextInt();
 
-        foodService.removeFoodItemFromRestaurant(
-                restaurantId,
-                foodItemId
-        );
+        foodService.removeFoodItemFromRestaurant(restaurantId,foodItemId);
 
-        System.out.println(
-                "Food item removed successfully!"
-        );
+        System.out.println("Food item removed successfully!");
     }
 
     // ==========================================
@@ -281,15 +252,12 @@ public class FoodDeliverySystem {
 
         if (orderService.getOrders().isEmpty()) {
 
-            System.out.println(
-                    "No orders available."
-            );
+            System.out.println("No orders available.");
 
             return;
         }
 
-        for (Order order :
-                orderService.getOrders()) {
+        for (Order order :orderService.getOrders()) {
 
             System.out.println(order);
         }
@@ -301,36 +269,23 @@ public class FoodDeliverySystem {
 
     public static void addDeliveryPerson() {
 
-        System.out.print(
-                "Enter Delivery Person ID: "
-        );
+        System.out.print("Enter Delivery Person ID: ");
 
         int id = scanner.nextInt();
 
         scanner.nextLine();
 
-        System.out.print(
-                "Enter Delivery Person Name: "
-        );
+        System.out.print("Enter Delivery Person Name: ");
 
         String name = scanner.nextLine();
 
-        System.out.print(
-                "Enter Contact No.: "
-        );
+        System.out.print("Enter Contact No.: ");
 
         long contactNo = scanner.nextLong();
 
-        DeliveryPerson deliveryPerson =
-                new DeliveryPerson(
-                        id,
-                        name,
-                        contactNo
-                );
+        DeliveryPerson deliveryPerson =new DeliveryPerson( id,name,contactNo);
 
-        orderService.addDeliveryPerson(
-                deliveryPerson
-        );
+        orderService.addDeliveryPerson(deliveryPerson);
     }
 
     // ==========================================
@@ -342,17 +297,11 @@ public class FoodDeliverySystem {
         System.out.print("Enter Order ID: ");
         int orderId = scanner.nextInt();
 
-        System.out.print(
-                "Enter Delivery Person ID: "
-        );
+        System.out.print("Enter Delivery Person ID: ");
 
-        int deliveryPersonId =
-                scanner.nextInt();
+        int deliveryPersonId =scanner.nextInt();
 
-        orderService.assignDeliveryPersonToOrder(
-                orderId,
-                deliveryPersonId
-        );
+        orderService.assignDeliveryPersonToOrder(orderId,deliveryPersonId);
     }
 
     // ==========================================
@@ -406,15 +355,11 @@ public class FoodDeliverySystem {
                     break;
 
                 case 7:
-                    System.out.println(
-                            "Exiting Customer Module"
-                    );
+                    System.out.println("Exiting Customer Module");
                     return;
 
                 default:
-                    System.out.println(
-                            "Invalid option."
-                    );
+                    System.out.println("Invalid option.");
             }
         }
     }
@@ -456,31 +401,16 @@ public class FoodDeliverySystem {
 
     public static void viewFoodItems() {
 
-        System.out.println(
-                "\nRestaurants and Menus:"
-        );
+        System.out.println("\nRestaurants and Menus:");
 
-        for (Restaurant restaurant :
-                foodService.getRestaurants()) {
+        for (Restaurant restaurant :foodService.getRestaurants()) {
 
-            System.out.println(
-                    "Restaurant ID: "
-                            + restaurant.getId()
-                            + ", Name: "
-                            + restaurant.getName()
-            );
+            System.out.println("Restaurant ID: "+ restaurant.getId()+ ", Name: "+ restaurant.getName());
 
-            for (FoodItem foodItem :
-                    restaurant.getMenu()) {
+            for (FoodItem foodItem :restaurant.getMenu()) {
 
-                System.out.println(
-                        "  Food Item ID: "
-                                + foodItem.getId()
-                                + ", Name: "
-                                + foodItem.getName()
-                                + ", Price: Rs. "
-                                + foodItem.getPrice()
-                );
+                System.out.println("  Food Item ID: "+ foodItem.getId()+ ", Name: "+ foodItem.getName()+ ", Price: Rs. "
+                                + foodItem.getPrice());
             }
         }
     }
@@ -494,15 +424,10 @@ public class FoodDeliverySystem {
         System.out.print("Enter Customer ID: ");
         int customerId = scanner.nextInt();
 
-        Customer customer =
-                customerService.getCustomer(customerId);
+        Customer customer =customerService.getCustomer(customerId);
 
         if (customer == null) {
-
-            System.out.println(
-                    "Customer not found."
-            );
-
+            System.out.println("Customer not found.");
             return;
         }
 
@@ -515,29 +440,16 @@ public class FoodDeliverySystem {
         System.out.print("Enter Quantity: ");
         int quantity = scanner.nextInt();
 
-        FoodItem foodItem =
-                foodService.getFoodItem(
-                        restaurantId,
-                        foodItemId
-                );
+        FoodItem foodItem =foodService.getFoodItem(restaurantId,foodItemId);
 
         if (foodItem == null) {
-
-            System.out.println(
-                    "Food item not found."
-            );
-
+            System.out.println("Food item not found.");
             return;
         }
 
-        customer.getCart().addItem(
-                foodItem,
-                quantity
-        );
+        customer.getCart().addItem(foodItem,quantity);
 
-        System.out.println(
-                "Food item added to cart!"
-        );
+        System.out.println("Food item added to cart!");
     }
 
     // ==========================================
@@ -549,15 +461,10 @@ public class FoodDeliverySystem {
         System.out.print("Enter Customer ID: ");
         int customerId = scanner.nextInt();
 
-        Customer customer =
-                customerService.getCustomer(customerId);
+        Customer customer =customerService.getCustomer(customerId);
 
         if (customer == null) {
-
-            System.out.println(
-                    "Customer not found."
-            );
-
+            System.out.println("Customer not found.");
             return;
         }
 
@@ -566,41 +473,26 @@ public class FoodDeliverySystem {
         System.out.println("\nCart:");
 
         if (cart.getItems().isEmpty()) {
-
-            System.out.println(
-                    "Cart is empty."
-            );
-
+            System.out.println("Cart is empty.");
             return;
         }
 
         double total = 0;
 
-        for (Map.Entry<FoodItem, Integer> entry :
-                cart.getItems().entrySet()) {
+        for (Map.Entry<FoodItem, Integer> entry :cart.getItems().entrySet()) {
 
             FoodItem foodItem = entry.getKey();
 
             int quantity = entry.getValue();
 
-            double cost =
-                    foodItem.getPrice() * quantity;
+            double cost =foodItem.getPrice() * quantity;
 
             total += cost;
 
-            System.out.println(
-                    "Food Item: "
-                            + foodItem.getName()
-                            + ", Quantity: "
-                            + quantity
-                            + ", Cost: Rs. "
-                            + cost
-            );
+            System.out.println("Food Item: " + foodItem.getName()+ ", Quantity: "+ quantity+ ", Cost: Rs. "+ cost);
         }
 
-        System.out.println(
-                "Total Cost: Rs. " + total
-        );
+        System.out.println("Total Cost: Rs. " + total);
     }
 
     // ==========================================
@@ -617,9 +509,7 @@ public class FoodDeliverySystem {
 
         if (customer == null) {
 
-            System.out.println(
-                    "Customer not found."
-            );
+            System.out.println("Customer not found.");
 
             return;
         }
@@ -627,27 +517,14 @@ public class FoodDeliverySystem {
         Cart cart = customer.getCart();
 
         if (cart.getItems().isEmpty()) {
-
-            System.out.println(
-                    "Cannot place order. Cart is empty."
-            );
-
+            System.out.println("Cannot place order. Cart is empty.");
             return;
         }
 
-        Order order =
-                new Order(
-                        orderCounter++,
-                        customer
-                );
+        Order order =new Order(orderCounter++,customer);
 
-        for (Map.Entry<FoodItem, Integer> entry :
-                cart.getItems().entrySet()) {
-
-            order.addItem(
-                    entry.getKey(),
-                    entry.getValue()
-            );
+        for (Map.Entry<FoodItem, Integer> entry :cart.getItems().entrySet()) {
+            order.addItem(entry.getKey(),entry.getValue());
         }
 
         orderService.placeOrder(order);
